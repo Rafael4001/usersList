@@ -24,7 +24,7 @@ const UserListHook = (props) => {
 
     fetchData();
     setIsFetching(false)
-  });
+  }, [isFetching]);
 
   const getFilteredResult = () => {
     let filteredUsers = [];
@@ -44,17 +44,22 @@ const UserListHook = (props) => {
   const getUsers = () => {
     const table = getFilteredResult();
 
-    return (
-      table.map((user, id) => (
-        <li key={id} className={classes.liContainer}>
-          <span className={classes.secondaryText}>{id + 1}. </span>
-          <div>
-            {user.name}
-            <span className={classes.secondaryText}> @{user.username}</span>
-          </div>
-        </li>
-      ))
-    )
+    if(table.length) {
+
+      return (
+        table.map((user, id) => (
+          <li key={id} className={classes.liContainer}>
+            <span className={classes.secondaryText}>{id + 1}. </span>
+            <div>
+              {user.name}
+              <span className={classes.secondaryText}> @{user.username}</span>
+            </div>
+          </li>
+        ))
+      )
+    } else {
+      return 'brak pasujących wyników'
+    }
   };
 
   const handleChange = (value) => {
