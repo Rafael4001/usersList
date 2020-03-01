@@ -2,6 +2,7 @@ import { withStyles } from '@material-ui/core/styles';
 
 import UserListHook from './UserListHook'
 
+
 const styles = () => ({
   wrapperContainer: {
     display: 'flex',
@@ -36,6 +37,9 @@ const styles = () => ({
     display: 'grid',
     gridTemplateColumns: '3rem auto',
     margin: '0.5rem 0',
+  },
+  noResultText: {
+    color: '#aa1417'
   }
 });
 

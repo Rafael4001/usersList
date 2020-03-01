@@ -58,7 +58,7 @@ const UserListHook = (props) => {
         ))
       )
     } else {
-      return 'brak pasujących wyników'
+      return <span className={classes.noResultText}>brak pasujących wyników</span>
     }
   };
 
